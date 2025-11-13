@@ -83,7 +83,7 @@ docker-compose up -d --build
 
 1. Navigate to the `backend` folder: `cd backend`
 2. Create a virtual environment: `python -m venv .venv`
-3. Activate it: `source venv/bin/activate`
+3. Activate it: `source .venv/bin/activate`
 4. Install dependencies: `pip install -r requirements.txt`
 5. Set up your environment variable: `export GEMINI_API_KEY=...` `export DATABASE_URL=...`
 6. Run the API: `uvicorn main:app --host 0.0.0.0 --port 8080 --reload`
