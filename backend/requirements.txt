@@ -1,0 +1,22 @@
+# API & Server
+fastapi
+uvicorn
+
+# Database
+sqlmodel
+psycopg
+psycopg-binary
+
+# Scraping and Data Extraction
+apscheduler
+requests
+beautifulsoup4
+lxml
+pandas
+openpyxl
+google-genai
+pdf2image
+pypdfium2
+
+# Configuration
+python-dotenv

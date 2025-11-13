@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_USER: your_postgres_username
+      POSTGRES_PASSWORD: your_postgres_password
+      POSTGRES_DB: outages
+    volumes:
+     - db_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/dockerfile
+    environment:
+      - DATABASE_URL=postgresql+psycopg://your_postgres_username:your_postgres_password@db:5432/outages
+      - GEMINI_API_KEY=your_gemini_api_key
+    depends_on:
+      - db
+  
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  db_data:

@@ -1,0 +1,12 @@
+.env
+Dockerfile
+.git
+.gitignore
+readme.md
+__pycache__/
+*.db
+*.sqlite3
+.DS_store
+.venv/
+.pytest_chache/
+.env.test
