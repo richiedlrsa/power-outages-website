@@ -93,6 +93,6 @@ docker-compose up -d --build
 1. Navigate to the frontend folder: `cd frontend`
 2. Install dependencies: `npm install`
 3. Run the dev server: `npm run dev`
-4. Your frontend will be on `http://localhost:3000`
+4. Your frontend will be on `http://localhost:5173`
 
 **Note:** The frontend will likely fail to connect to the backend due to CORS errors, which the Docker/Nginx setup is designed to solve.
