@@ -112,7 +112,7 @@ to run the test suite, set up your environment variables: `export GEMINI_API_KEY
 **Test Coverage Overview**
 
 The suite is structured to test all critical components of the API:
-* `TestEdeeste` / `TestEdenorte` / `TestEdesure` (Unit Test):
+#### `TestEdeeste` / `TestEdenorte` / `TestEdesure` (Unit Test):
 
 - These files contain unit tests for each specific scraping class.
 - They test the logic for finding the corect download links (PDFs, CSVs) for the current week,
@@ -120,7 +120,7 @@ The suite is structured to test all critical components of the API:
 - They test the `_organize_data` methods to validate that raw data is correctly transformed into the application's data models.
 - They confirm that custom `ScrapeError` exceptions are raised if data is not available.
 
-* `TestOutageEndpoint` (Integration Test):
+#### `TestOutageEndpoint` (Integration Test):
 
 - This is a full integration test for the FastAPI API.
 - It uses a `pytest` fixture to create an isolated `SQLModel` session for the test run.
