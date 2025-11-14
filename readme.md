@@ -83,7 +83,7 @@ docker-compose up -d --build
 
 1. Navigate to the `backend` folder: `cd backend`
 2. Create a virtual environment: `python -m venv .venv`
-3. Activate it: `source venv/bin/activate`
+3. Activate it: `source .venv/bin/activate`
 4. Install dependencies: `pip install -r requirements.txt`
 5. Set up your environment variable: `export GEMINI_API_KEY=...` `export DATABASE_URL=...`
 6. Run the API: `uvicorn main:app --host 0.0.0.0 --port 8080 --reload`
@@ -93,7 +93,7 @@ docker-compose up -d --build
 1. Navigate to the frontend folder: `cd frontend`
 2. Install dependencies: `npm install`
 3. Run the dev server: `npm run dev`
-4. Your frontend will be on `http://localhost:3000`
+4. Your frontend will be on `http://localhost:5173`
 
 **Note:** The frontend will likely fail to connect to the backend due to CORS errors, which the Docker/Nginx setup is designed to solve.
 
