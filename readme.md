@@ -96,3 +96,35 @@ docker-compose up -d --build
 4. Your frontend will be on `http://localhost:3000`
 
 **Note:** The frontend will likely fail to connect to the backend due to CORS errors, which the Docker/Nginx setup is designed to solve.
+
+## 🧪 Testing
+
+This project includes a comprehensive test suite built with `pytest` to ensure reliability.
+
+The tests are structured to run in an isolated environment against a dedicated test dabase, ensuring that local development and production data are never affected.
+
+**Test Environment Setup**
+
+The test suite is designed to run agains a separate test database.
+
+to run the test suite, set up your environment variables: `export GEMINI_API_KEY=...` `export DATABASE_URL=...`. Ensure that the database url points to the testing database.
+
+**Test Coverage Overview**
+
+The suite is structured to test all critical components of the API:
+* `TestEdeeste` / `TestEdenorte` / `TestEdesure` (Unit Test):
+
+- These files contain unit tests for each specific scraping class.
+- They test the logic for finding the corect download links (PDFs, CSVs) for the current week,
+- They test the data extraction logic `(_extract_from_pdf, _extract_from_csv)` to ensure raw data is read correctly.
+- They test the `_organize_data` methods to validate that raw data is correctly transformed into the application's data models.
+- They confirm that custom `ScrapeError` exceptions are raised if data is not available.
+
+* `TestOutageEndpoint` (Integration Test):
+
+- This is a full integration test for the FastAPI API.
+- It uses a `pytest` fixture to create an isolated `SQLModel` session for the test run.
+- It populates the test database with sample `DB_DATA` before running the test.
+- It uses the `TestClient` to make a live `GET /outages/` request to the API.
+- It asserts a `200 OK` status code and validates the entire structure of the JSON response (checking keys, data types, and list contents) to ensure the API is serving data correctly.
+- It tears down all test data from the database after the test completes.

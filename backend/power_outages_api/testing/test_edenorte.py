@@ -1,6 +1,6 @@
 import re
 from .test_data import TEST_MONDAY_ISO, MONTHS, DATA, WEEKDAYS
-from power_outages_api.edenorte import Edenorte, ScrapeError
+from ..edenorte import Edenorte, ScrapeError
 from datetime import date, timedelta
 import pytest, locale
 

@@ -1,4 +1,4 @@
-from power_outages_api.edeeste import Edeeste, ScrapeError
+from ..edeeste import Edeeste, ScrapeError
 from datetime import timedelta, date
 from .test_data import WEEKDAYS, MONTHS, TEST_MONDAY, DATA
 import pytest, os, re, locale

@@ -1,17 +1,17 @@
 import os, pytest
 from .test_data import DB_DATA
-from power_outages_api.models import MaintenanceEvent, TimeSectors
-from power_outages_api.routes import app
+from ..models import MaintenanceEvent, TimeSectors
+from ..routes import router
 from fastapi.testclient import TestClient
+from fastapi import FastAPI
 from sqlmodel import create_engine, Session, SQLModel, select
-from dotenv import load_dotenv, find_dotenv
 from datetime import date
 
-path = find_dotenv()
-load_dotenv(path)
-DB_URL = os.getenv('DATABASE_URL_TESTING')
+DB_URL = os.getenv('DATABASE_URL')
 engine = create_engine(DB_URL)
 SQLModel.metadata.create_all(engine)
+app = FastAPI()
+app.include_router(router)
 client = TestClient(app)
 
 @pytest.fixture(scope="module")

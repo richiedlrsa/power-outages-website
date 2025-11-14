@@ -6,7 +6,7 @@ WEEKDAYS = {
     'miércoles',
     'jueves',
     'viernes',
-    'sabado',
+    'sábado',
     'domingo'
 }
 MONTHS = {

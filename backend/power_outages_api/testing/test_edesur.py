@@ -1,4 +1,4 @@
-from power_outages_api.edesur import Edesur
+from ..edesur import Edesur
 
 class TestEdesur:
     def test_organize_data(self):
